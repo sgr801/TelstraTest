@@ -1,3 +1,0 @@
-# TelstraTest
-
-Test
