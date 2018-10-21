@@ -27,6 +27,10 @@
    
 * __What would I do if I had more time?__
     - Improve the UI more.
+    
+### Branches ###
+    - master
+    - develop
 
 ### Who do I talk to? ###
 
