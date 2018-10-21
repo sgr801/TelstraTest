@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="loading_placeholder">28sp</dimen>
+    <dimen name="adapter_item_title">22sp</dimen>
+    <dimen name="adapter_item_description">17sp</dimen>
+
+</resources>
