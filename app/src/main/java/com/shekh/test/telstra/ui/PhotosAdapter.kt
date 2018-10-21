@@ -24,17 +24,15 @@ class PhotosAdapter(private val context: Context, private val mList: ArrayList<P
         val photo = mList[position]
 
         if (holder is PhotoViewHolder) {
-            photo.title?.let {
-                holder.title.text = it
-            }
+            holder.title.text = photo.title?.let {
+                it
+            } ?: context.getString(R.string.title_unavailable)
 
-            photo.description?.let {
-                holder.description.text = it
-            }
+            holder.description.text = photo.description?.let {
+                it
+            } ?: context.getString(R.string.description_unavailable)
 
-            photo.imageHref?.let {
-                CustomViewUtils.showImageWithGlide(context, photo.imageHref, holder.photoProgressbar, holder.photo)
-            }
+            CustomViewUtils.showImageWithGlide(context, photo.imageHref, holder.photoProgressbar, holder.photo)
         }
     }
 

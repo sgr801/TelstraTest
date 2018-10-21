@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="adapterItemTitle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/adapter_item_title</item>
+        <item name="android:textColor">@color/adapterItemTitle</item>
+    </style>
+
 </resources>

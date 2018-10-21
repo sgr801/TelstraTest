@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import android.widget.Toast
 import com.shekh.test.telstra.helpers.Injector
 import com.shekh.test.telstra.model.PhotoResponse
@@ -45,6 +46,8 @@ class MainActivity : AppCompatActivity() {
                 photosAdapter = PhotosAdapter(this, rows)
                 recyclerView.adapter = photosAdapter
             }
+
+            loadingTextView.visibility = if (it?.rows?.isEmpty() == true) View.VISIBLE else View.GONE
         })
 
         viewModel.networkError.observe(this, Observer<String> {
@@ -53,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.getPhotos()
+        swipeRefreshLayout.isRefreshing = true
     }
 
     private fun setActionBarTitle(title: String) {

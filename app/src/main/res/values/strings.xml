@@ -6,4 +6,6 @@
     <string name="unknown_error">Unknown Error</string>
     <string name="loading">Loading</string>
     <string name="photo_content">Photo Item</string>
+    <string name="title_unavailable">Title Unavailable</string>
+    <string name="description_unavailable">Description Unavailable</string>
 </resources>
