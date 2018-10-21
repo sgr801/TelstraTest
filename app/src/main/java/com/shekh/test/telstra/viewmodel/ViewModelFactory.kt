@@ -1,7 +1,7 @@
 package com.shekh.test.telstra.viewmodel
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.shekh.test.telstra.network.RequestQueueHelper
 import com.shekh.test.telstra.repo.AppRepository
 

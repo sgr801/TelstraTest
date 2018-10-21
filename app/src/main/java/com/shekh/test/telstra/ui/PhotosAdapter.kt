@@ -1,13 +1,13 @@
 package com.shekh.test.telstra.ui
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.shekh.test.telstra.R
 import com.shekh.test.telstra.model.Photo
 import com.shekh.test.telstra.util.CustomViewUtils

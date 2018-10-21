@@ -1,8 +1,8 @@
 package com.shekh.test.telstra.viewmodel
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.shekh.test.telstra.model.PhotoResponse
 import com.shekh.test.telstra.network.RequestQueueHelper
 import com.shekh.test.telstra.repo.AppRepository

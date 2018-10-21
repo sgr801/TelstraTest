@@ -1,9 +1,9 @@
 package com.shekh.test.telstra.database
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.shekh.test.telstra.model.Photo
 
 @Database(entities = [Photo::class], version = 1, exportSchema = false)
@@ -17,12 +17,11 @@ abstract class AppDatabase : RoomDatabase() {
 
         fun getDatabaseInstance(context: Context): AppDatabase =
                 INSTANCE ?: synchronized(this) {
-                INSTANCE ?:
-                Room.databaseBuilder(context,
-                        AppDatabase::class.java,
-                        databaseName)
-                        .fallbackToDestructiveMigration()
-                        .build()
+                    INSTANCE ?: Room.databaseBuilder(context,
+                            AppDatabase::class.java,
+                            databaseName)
+                            .fallbackToDestructiveMigration()
+                            .build()
                 }.also { INSTANCE = it }
     }
 }

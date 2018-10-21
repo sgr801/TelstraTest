@@ -1,12 +1,13 @@
 package com.shekh.test.telstra
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.shekh.test.telstra.helpers.Injector
 import com.shekh.test.telstra.model.PhotoResponse
 import com.shekh.test.telstra.ui.PhotosAdapter
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProviders.of(this, Injector.provideViewModelFactory(this))
+        viewModel = ViewModelProviders.of(this, Injector.provideViewModelFactory(applicationContext))
                 .get(MainViewModel::class.java)
 
         setupRecyclerView()
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     private fun initAdapter() {
@@ -52,10 +53,12 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.networkError.observe(this, Observer<String> {
             swipeRefreshLayout.isRefreshing = false
+            loadingTextView.text = it
             Toast.makeText(this, "Wooops $it", Toast.LENGTH_LONG).show()
         })
 
         viewModel.getPhotos()
+        loadingTextView.text = this.getString(R.string.loading)
         swipeRefreshLayout.isRefreshing = true
     }
 
