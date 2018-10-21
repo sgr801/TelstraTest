@@ -8,9 +8,20 @@ import com.shekh.test.telstra.network.RequestQueueHelper
 import com.shekh.test.telstra.network.RequestsProcessor
 import com.shekh.test.telstra.util.AppPreferences
 
+/**
+ * Repository class to interact with API and local DB
+ */
 class AppRepository(private val context: Context, private val cache: LocalCache) {
 
-    fun loadPhotos(requestQueueHelper: RequestQueueHelper, onSuccess: (response: PhotoResponse) -> Unit, onFailed: (errMsg: String) -> Unit) {
+    /**
+     * Loads photos from API on successful response stores data to db
+     * If can't fetch data from API will look at previously stored data in DB
+     *
+     * @param requestQueueHelper RequestQueueHelper
+     * @param onSuccess Successful response callback with PhotoResponse
+     * @param onFailure Unsuccessful response callback with error message
+     */
+    fun loadResponse(requestQueueHelper: RequestQueueHelper, onSuccess: (response: PhotoResponse) -> Unit, onFailed: (errMsg: String) -> Unit) {
         RequestsProcessor.fetchRowItems(
                 context,
                 requestQueueHelper,

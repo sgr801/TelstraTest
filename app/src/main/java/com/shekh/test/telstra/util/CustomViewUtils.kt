@@ -15,9 +15,20 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.shekh.test.telstra.R
 
+/**
+ * Class to show image using glide
+ */
 class CustomViewUtils {
 
     companion object {
+        /**
+         * Show image using glide
+         *
+         * @param context application context
+         * @param url url path of image
+         * @param progressBar ProgressBar shows while loading image
+         * @param imageView View where the image will be loaded
+         */
         fun showImageWithGlide(context: Context, url: String?, progressBar: ProgressBar?, imageView: ImageView) {
             Glide.with(context)
                     .load(url)

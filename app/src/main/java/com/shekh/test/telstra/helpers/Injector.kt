@@ -7,6 +7,9 @@ import com.shekh.test.telstra.repo.AppRepository
 import com.shekh.test.telstra.repo.LocalCache
 import com.shekh.test.telstra.viewmodel.ViewModelFactory
 
+/**
+ * Dependency Injector for ViewModelFactory, AppRepository, LocalCache
+ */
 object Injector {
 
     fun provideViewModelFactory(context: Context): ViewModelFactory {

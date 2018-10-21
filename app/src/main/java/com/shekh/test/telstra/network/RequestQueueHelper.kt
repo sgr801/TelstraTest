@@ -37,12 +37,23 @@ class RequestQueueHelper(context: Context) {
         return mRequestQueue
     }
 
+    /**
+     * Checks If client is connected to Internet or not
+     *
+     * @return true if connected to network
+     */
     private fun isNetworkConnected(): Boolean {
         val connectivityManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
         return networkInfo?.isConnected == true
     }
 
+    /**
+     * Adds request to queue
+     *
+     * @param request Request to add
+     * @return true if connected to network
+     */
     fun <T> addToRequestQueue(request: Request<T>): Boolean {
         return if (isNetworkConnected()) {
             getRequestQueue().add(request)

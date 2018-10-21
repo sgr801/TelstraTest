@@ -15,6 +15,14 @@ class RequestsProcessor {
     companion object {
         private const val LOG_TAG = AppConstants.LOG_TAG_FP
 
+        /**
+         * Fetch row items from API
+         *
+         * @param context Application Context
+         * @param requestQueueHelper RequestQueueHelper
+         * @param onSuccess Successful response callback with PhotoResponse
+         * @param onFailure Unsuccessful response callback with error message
+         */
         fun fetchRowItems(context: Context,
                           requestQueueHelper: RequestQueueHelper,
                           onSuccess: (response: PhotoResponse?) -> Unit,
