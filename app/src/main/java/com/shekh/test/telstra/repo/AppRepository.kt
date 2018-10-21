@@ -1,15 +1,23 @@
 package com.shekh.test.telstra.repo
 
+import android.content.Context
+import com.shekh.test.telstra.R
+import com.shekh.test.telstra.model.Photo
 import com.shekh.test.telstra.model.PhotoResponse
 import com.shekh.test.telstra.network.RequestQueueHelper
 import com.shekh.test.telstra.network.RequestsProcessor
+import com.shekh.test.telstra.util.AppPreferences
 
-class AppRepository(private val cache: LocalCache) {
+class AppRepository(private val context: Context, private val cache: LocalCache) {
 
     fun loadPhotos(requestQueueHelper: RequestQueueHelper, onSuccess: (response: PhotoResponse) -> Unit, onFailed: (errMsg: String) -> Unit) {
         RequestsProcessor.fetchRowItems(
+                context,
                 requestQueueHelper,
                 { response ->
+                    response?.title?.let {
+                        AppPreferences.savePreferences(context, AppPreferences.Key.TITLE_CACHE, it)
+                    }
                     response?.rows?.let {
                         clearDatabase()
                         cache.insert(it) {
@@ -18,7 +26,15 @@ class AppRepository(private val cache: LocalCache) {
                     }
                 },
                 { error ->
-                    onFailed(error)
+                    cache.getAllPhotos { photos ->
+                        if (photos.isNotEmpty()) {
+                            val title = AppPreferences.getString(context, AppPreferences.Key.TITLE_CACHE)?.let { it }
+                                    ?: context.getString(R.string.default_title)
+                            onSuccess(PhotoResponse(title, photos as ArrayList<Photo>))
+                        } else {
+                            onFailed(error)
+                        }
+                    }
                 }
         )
     }

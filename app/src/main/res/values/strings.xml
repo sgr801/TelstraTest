@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">TelstraTest</string>
 
+    <string name="default_title">Telstra Test</string>
     <string name="network_error_no_internet">No Internet Connection</string>
-    <string name="loading">Loading...</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="loading">Loading</string>
     <string name="photo_content">Photo Item</string>
 </resources>

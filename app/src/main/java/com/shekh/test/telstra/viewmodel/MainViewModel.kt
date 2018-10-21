@@ -9,10 +9,6 @@ import com.shekh.test.telstra.repo.AppRepository
 
 class MainViewModel(private val requestQueueHelper: RequestQueueHelper, private val repository: AppRepository) : ViewModel() {
 
-//    private val photosLiveData = MutableLiveData<ResponseModel>()
-//    private val photoResult: LiveData<ResponseResult> = Transformations.map(photosLiveData, {repository.loadPhotos(requestQueueHelper)})
-
-    // List
     private val photosMutable = MutableLiveData<PhotoResponse>()
     val errMutable = MutableLiveData<String>()
     val photos: LiveData<PhotoResponse> = photosMutable

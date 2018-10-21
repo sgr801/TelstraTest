@@ -1,4 +1,4 @@
-package com.shekh.test.telstra.constants
+package com.shekh.test.telstra.util
 
 class AppConstants {
 

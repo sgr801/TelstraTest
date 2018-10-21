@@ -15,11 +15,11 @@ object Injector {
     }
 
     fun provideAppRepository(context: Context): AppRepository {
-        return AppRepository(provideCache(context))
+        return AppRepository(context, provideCache(context))
     }
 
     fun provideCache(context: Context): LocalCache {
         val database: AppDatabase = AppDatabase.getDatabaseInstance(context)
-        return LocalCache(database.photoDao())
+        return LocalCache(database)
     }
 }

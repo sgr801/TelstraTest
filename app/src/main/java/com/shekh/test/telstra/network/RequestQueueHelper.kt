@@ -3,6 +3,7 @@ package com.shekh.test.telstra.network
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -38,15 +39,17 @@ class RequestQueueHelper(context: Context) {
 
     private fun isNetworkConnected(): Boolean {
         val connectivityManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
-        return networkInfo.isConnected
+        val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+        return networkInfo?.isConnected == true
     }
 
-    fun <T> addToRequestQueue(request: Request<T>) {
-        if (isNetworkConnected()) {
+    fun <T> addToRequestQueue(request: Request<T>): Boolean {
+        return if (isNetworkConnected()) {
             getRequestQueue().add(request)
+            true
         } else {
             Toast.makeText(mContext.applicationContext, mContext.getString(R.string.network_error_no_internet), Toast.LENGTH_LONG).show()
+            false
         }
     }
 

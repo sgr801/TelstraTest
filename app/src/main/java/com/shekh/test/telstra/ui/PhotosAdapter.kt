@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.shekh.test.telstra.R
-import com.shekh.test.telstra.helpers.CustomViewUtils
 import com.shekh.test.telstra.model.Photo
+import com.shekh.test.telstra.util.CustomViewUtils
 import kotlinx.android.synthetic.main.item_photo.view.*
 
 class PhotosAdapter(private val context: Context, private val mList: ArrayList<Photo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
