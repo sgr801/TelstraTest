@@ -1,4 +1,4 @@
-package com.shekh.test.telstra
+package com.shekh.test.telstra.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.shekh.test.telstra.R
 import com.shekh.test.telstra.helpers.Injector
 import com.shekh.test.telstra.model.PhotoResponse
-import com.shekh.test.telstra.ui.PhotosAdapter
 import com.shekh.test.telstra.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 

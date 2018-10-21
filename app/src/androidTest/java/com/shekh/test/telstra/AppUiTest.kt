@@ -9,6 +9,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import com.shekh.test.telstra.ui.MainActivity
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
